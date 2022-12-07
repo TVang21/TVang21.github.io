@@ -20,4 +20,28 @@
        <strong>atmosphere.</strong>   </p>
        <img src="https://raw.githubusercontent.com/TVang21/git_test/main/campfire.jpg"/> 
   </body>
+  
+  <select id="theme" onchange="setColorCookie()">
+      <option value="Select Color">Select Color</option>
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+    </select>
+  <script type="text/javascript">
+      window.onload = function () {
+        if(document.cookie.length != 0) {
+           var nameValueArray = document.cookie.split("=");
+           document.bgColor = nameValueArray[1];
+           document.getElementById("theme").value = nameValueArray[1];
+=        }
+    }
+      function setColorCookie() {
+        var selectedColor = document.getElementById("theme").values;
+        if (selectedColor != "Select Color") {
+            
+            document.bgColor = selectedColor;
+            document.cookie = "color" + selectedColor + ";expires=Fri, 12 Dec 2022 01:00:00 UTC;";
+        }
+      }
+  </script>
 </html>
